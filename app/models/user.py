@@ -15,7 +15,14 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     email = db.Column(db.String(64), unique=True)
     confirmed = db.Column(db.Boolean, default=False)
-    icon=db.Column(db.String(64),default='default.jpg')
+    icon = db.Column(db.String(64), default='default.jpg')
+    # 添加关联模型 相当于在关联模型中动态的添加了一个字段
+    # 参数说明：
+    # 第一个参数：唯一一个必须的参数，关联的模型类名
+    # backref:反向引用的字段名
+    # lazy:指定加载关联数据的方式,dynamic:不加载记录，但是提供关联查询
+    posts = db.relationship('Posts', backref='user', lazy='dynamic')  # 反向关联字段名
+
     # 保护字段
     @property
     def password(self):

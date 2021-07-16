@@ -3,6 +3,7 @@ from app.extensions import mail
 from flask_mail import Message
 from threading import Thread
 
+
 def async_send_mail(app, msg):
     # 发邮件需要程序的上下文，否则发送不了邮件
     # 在新的线程中没有上下文，需要手动创建
@@ -17,7 +18,7 @@ def send_mail(to, subject, template, **kwargs):
     msg.html = render_template(template + '.html', **kwargs)
     msg.body = render_template(template + '.txt', **kwargs)
     print(msg.body)
-    #print(url_for('user.activate', token=kwargs['token'], _external=True))
+    # print(url_for('user.activate', token=kwargs['token'], _external=True))
     thr = Thread(target=async_send_mail, args=[app, msg])
     thr.start()
     return thr

@@ -94,7 +94,7 @@ def change_icon():
         name = rand_str() + suffix
         photos.save(form.icon.data, name=name)
         # 生成缩略图
-        pathname = os.path.join(current_app.congif['UPLOADED_PHOTOS_DEST'], name)
+        pathname = os.path.join(current_app.config['UPLOADED_PHOTOS_DEST'], name)
         img = Image.open(pathname)
         img.thumbnail((64, 64))
         img.save(pathname)
