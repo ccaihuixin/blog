@@ -3,6 +3,7 @@
 {% block title %}博客{% endblock %}
 
 {% block navbar %}
+
     <nav class="navbar navbar-inverse" style="border-radius: 0px;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -20,15 +21,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">板块一</a></li>
+                    <li><a href="#">我的文章</a></li>
                     <li><a href="#">板块二</a></li>
                 </ul>
-
                 <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
                     <li><a href="{{ url_for('user.logout') }}">退出</a> </li>
                     <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ current_user.username }} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 0">{#  { current_user.username }#}                <div class="c1">
+    <img src="{{  url_for('static',filename='upload/default.jpg')}} " alt="">
+</div>{#   <span class="caret"></span>#}</a>
           <ul class="dropdown-menu">
             <li><a href="{{ url_for('user.profile') }}">个人信息</a></li>
             <li><a href="{{ url_for('user.change_password') }}">修改密码</a></li>
@@ -61,6 +63,25 @@
         {% endfor %}
         {% block page_content %}默认内容{% endblock %}
     </div>
+
+      <style>
+        .c1{
+            width: 50px;
+            height: 50px;
+            border: 3px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    img{
+        width: 100%;
+    }
+
+
+    </style>
+
+
+
+
 {% endblock %}
 
 {% block scripts %}

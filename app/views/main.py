@@ -28,6 +28,7 @@ def index():
         # 只获取发表的帖子，过滤回复的贴子
     # posts=Posts.query.filter_by(rid=0).order_by(Posts.timestamp.desc()).all()
     # 分页处理
+    #默认是第一页
     page = request.args.get('page', 1,type=int)
     pagination = Posts.query.filter_by(rid=0).order_by(Posts.timestamp.desc()).paginate(page, per_page=3,
                                                                                         error_out=False)
