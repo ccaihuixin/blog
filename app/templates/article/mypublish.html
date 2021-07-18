@@ -13,8 +13,8 @@
   </div>
   <div class="media-body">
       <div style="float:right">{{ moment(p.timestamp).fromNow() }}</div>
-    <h4 class="media-heading">{{ p.title }}</h4>
-    {{ p.content }}
+      <h4 class="media-heading"><a>{{ p.title }}</a></h4>
+    {{ p.describe }}
   </div>
 </div>
     {% endfor %}
