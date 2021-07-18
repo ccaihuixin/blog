@@ -12,6 +12,7 @@
     <a href="#">
       <img class="media-object" src="{{ url_for('static',filename='upload/'+p.user.icon) }}" style="height: 64px;width: 64px" alt="icon">
     </a>
+      <span>{{ p.user.username }}</span>
   </div>
   <div class="media-body">
       <div style="float:right">{{ moment(p.timestamp).fromNow() }}</div>
@@ -23,20 +24,4 @@
     <hr/>
     {# 展示分页导航条 #}
     {{ pagination_show(pagination,'main.index') }}
-
-
-    <div class="ms-auto dropdown nav-item"><a aria-haspopup="true" aria-expanded="false" id="userInfo"
-                                              class="pe-0 dropdown-toggle nav-link" role="button" href="#">
-        <div class="avatar   ">
-            <div class="position-relative overflow-hidden rounded-circle h-100 d-flex align-items-center justify-content-center">
-                <div style="overflow:hidden;box-sizing:border-box;display:inline-block;position:relative;width:40px;height:40px">
-                    <img alt="Jason Doe"
-                         srcset="/_next/image?url=%2Fimg%2Favatar-6.jpg&amp;w=48&amp;q=75 1x, /_next/image?url=%2Fimg%2Favatar-6.jpg&amp;w=96&amp;q=75 2x"
-                         src="/_next/image?url=%2Fimg%2Favatar-6.jpg&amp;w=96&amp;q=75" decoding="async"
-                         class="rounded-circle"
-                         style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                </div>
-            </div>
-        </div>
-    </a>
 {% endblock %}
