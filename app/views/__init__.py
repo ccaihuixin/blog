@@ -1,11 +1,12 @@
 from .main import main
 from .user import user
+from .article import article
 #蓝本配置元组
 DEFAULT_BLUEPRINT=(
     #蓝本 前缀
     (main,''),
-    (user,'/user')
-
+    (user,'/user'),
+    (article,'/article')
 )
 
 #注册蓝图

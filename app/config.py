@@ -2,7 +2,6 @@ import os
 
 base_dir = os.path.abspath(os.path.dirname(__name__))
 
-
 # 通用配置
 class Config:
     # 密钥
