@@ -1,11 +1,8 @@
 {% extends 'common/base.html' %}
-{# 导入分页展示的宏 #}
 {% from 'common/macro.html' import pagination_show %}
-{% block title %}首页{% endblock %}
+{% block title %}我的文章{% endblock %}
 {% block page_content %}
-{#    {{ wtf.quick_form(form) }}#}
-    {# 渲染发表博客的表单 #}
-    {% for p in posts %}
+{% for p in posts %}
         <hr style="margin-top: 15px;margin-bottom: 15px"/>
     <div class="media">
   <div class="media-left">
@@ -22,6 +19,5 @@
 </div>
     {% endfor %}
     <hr/>
-    {# 展示分页导航条 #}
-    <div style="text-align: center">{{ pagination_show(pagination,'main.index') }}</div>
+    <div style="text-align: center">{{ pagination_show(pagination,'article.mypublish') }}</div>
 {% endblock %}

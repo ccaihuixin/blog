@@ -28,7 +28,6 @@ def index():
     # 分页处理
     # 默认是第一页
     page = request.args.get('page', 1, type=int)
-    pagination = Posts.query.filter_by(rid=0).order_by(Posts.timestamp.desc()).paginate(page, per_page=5,
-                                                                                        error_out=False)
+    pagination = Posts.query.filter_by(rid=0).order_by(Posts.timestamp.desc()).paginate(page, per_page=5)
     posts = pagination.items
     return render_template('main/index.html', posts=posts, pagination=pagination)
