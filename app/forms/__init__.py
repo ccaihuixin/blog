@@ -1,2 +1,2 @@
 from .user import RegisterForm, LoginForm, PasswordForm, IconForm
-from .posts import PostsForm
+from .posts import PostsForm,ChangePostsForm
