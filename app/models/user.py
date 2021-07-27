@@ -60,6 +60,13 @@ class User(UserMixin, db.Model):
             db.session.add(user)
         return True
 
+    def to_dict(self):
+        resp_dict = {
+            "id": self.id,
+            "username": self.username,
+            "icon": self.icon,
+        }
+        return resp_dict
 
 # 回调根据id查询用户是谁 返回用户
 @login_manager.user_loader
